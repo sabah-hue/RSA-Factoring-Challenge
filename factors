@@ -4,8 +4,9 @@ import sys
 def factors:
 	if len(sys.argv) != 2:
     		sys.exit(f"Wrong usage: {sys.argv[0]}")
-	with open(sys.argv[1], 'r') as stream:
-		for line in stream:
+        try:
+            with open(sys.argv[1], 'r') as stream:
+                for line in stream:
                     number = int(line.strip())
                     primary = 2
                     if number % primary == 0:
@@ -19,6 +20,7 @@ def factors:
                         primary = primary + 2
                     if primary == (number // 2) + 1:
                         print(f"{number}={number}*{1}")
+        except (IndexError):
+            pass
 
-  
 factors()
