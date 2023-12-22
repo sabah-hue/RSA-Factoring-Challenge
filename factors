@@ -6,13 +6,19 @@ def factors:
     		sys.exit(f"Wrong usage: {sys.argv[0]}")
 	with open(sys.argv[1], 'r') as stream:
 		for line in stream:
-			number = int(line.strip())
-			primary = 2
-			while (number % primary):
-				if number >= primary:
-					primary = primary + 1
-			print("{}={}*{}".format(number, number // primary, primary))
-def main():
-    factors()
-if __name__ == "__main__":
-    main()
+                    number = int(line.strip())
+                    primary = 2
+                    if number % primary == 0:
+                        print("{}={}*{}".format(number, number // primary, primary))
+                        continue
+                    primary = primary + 1
+		    while primary <= number // 2:
+                        if number % primary == 0:
+                            print("{}={}*{}".format(number, number // primary, primary))
+                            break
+                        primary = primary + 2
+                    if primary == (number // 2) + 1:
+                        print(f"{number}={number}*{1}")
+
+  
+factors()
