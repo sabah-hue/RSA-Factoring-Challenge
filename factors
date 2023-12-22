@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+import sys
+
+def factors:
+	if len(sys.argv) != 2:
+    		sys.exit(f"Wrong usage: {sys.argv[0]}")
+	with open(sys.argv[1], 'r') as stream:
+		for line in stream:
+			number = int(line.strip())
+			primary = 2
+			while (number % primary):
+				if number >= primary:
+					primary = primary + 1
+			print("{}={}*{}".format(number, number // primary, primary))
+factors()
