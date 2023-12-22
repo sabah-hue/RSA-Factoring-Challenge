@@ -12,4 +12,7 @@ def factors:
 				if number >= primary:
 					primary = primary + 1
 			print("{}={}*{}".format(number, number // primary, primary))
-factors()
+def main():
+    factors()
+if __name__ == "__main__":
+    main()
