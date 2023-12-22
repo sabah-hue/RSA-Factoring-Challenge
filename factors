@@ -5,13 +5,13 @@ def factors():
     try:
         with open(sys.argv[1], 'r') as stream:
             for line in stream:
-                number = int(line.strip())
+                number = int(line)
                 primary = 2
                 if number % primary == 0:
                     print("{}={}*{}".format(number, number // primary, primary))
                     continue
                 primary = primary + 1
-                while primary <= number // 2:
+                while primary < number // 2:
                     if number % primary == 0:
                         print("{}={}*{}".format(number, number // primary, primary))
                         break
