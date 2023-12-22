@@ -23,19 +23,19 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		fprintf(stderr, "Usage: factors <file>\n");
+		fprintf(stderr, "Usage: factor <filename>\n");
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(av[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "can't open file %s\n", av[1]);
+		fprintf(stderr, "Error: can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&data, &size, file) != -1)
 	{
 		n = atoll(data);
-		for (i = 2; i <= sqrt(n); i++)
+		for (i = 2; i < n; i++)
 		{
 			if (n % i == 0)
 			{
