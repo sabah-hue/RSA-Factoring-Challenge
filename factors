@@ -1,26 +1,24 @@
 #!/usr/bin/python3
 import sys
 
-def factors:
-	if len(sys.argv) != 2:
-    		sys.exit(f"Wrong usage: {sys.argv[0]}")
-        try:
-            with open(sys.argv[1], 'r') as stream:
-                for line in stream:
-                    number = int(line.strip())
-                    primary = 2
+def factors():
+    try:
+        with open(sys.argv[1], 'r') as stream:
+            for line in stream:
+                number = int(line.strip())
+                primary = 2
+                if number % primary == 0:
+                    print("{}={}*{}".format(number, number // primary, primary))
+                    continue
+                primary = primary + 1
+                while primary <= number // 2:
                     if number % primary == 0:
                         print("{}={}*{}".format(number, number // primary, primary))
-                        continue
-                    primary = primary + 1
-		    while primary <= number // 2:
-                        if number % primary == 0:
-                            print("{}={}*{}".format(number, number // primary, primary))
-                            break
-                        primary = primary + 2
+                        break
+                    primary = primary + 2
                     if primary == (number // 2) + 1:
                         print(f"{number}={number}*{1}")
-        except (IndexError):
-            pass
+    except (IndexError):
+        pass
 
 factors()
